@@ -30,10 +30,18 @@ h1 {
 .main-section {
     position: relative;
     top: 75px;
+    height: 75vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    overflow: auto;
+}
+
+/* it's unclear why this is needed */
+.about-me-image, .about-me-message {
+    position: relative;
+    top: 75px;
 }
 
 .nav-menu {
@@ -72,6 +80,37 @@ button:hover {
     background-color: darkgray;
 }
 
+.about-me-image {
+    max-width: 600px;
+}
+
+.about-me-message {
+    /* how do I make this dynamic with the width of the picture? */
+    width: 65%;
+    max-width: 600px;
+    margin-top: 15px;
+}
+
+.bold-and-underline {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.project-card {
+    width: 75%;
+    border: 2px darkgray solid;
+    max-width: 700px;
+    margin-bottom: 25px;
+}
+
+.project-card h2{
+    margin: 0;
+}
+
+.project-card-description {
+    padding: 10px;
+}
+
 footer {
     position: fixed;
     bottom: 0;
@@ -87,31 +126,36 @@ footer {
     border-top: 1px darkgray solid;
 }
 
-/* What is the right breakdown for tablets? */
+/* What is the right breakpoint for tablets? */
 @media (min-width: 728px) {
     .home-buttons {
         width: 600px;
     }
+
+    /* need to revisit this once I figured out what's going on above */
+    .about-me-image, .about-me-message {
+        position: static;
+    }
 }
 
 @media (min-width: 1024px) {
-    main {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 95vh;
-    }
-
     .main-section {
+        top: calc(2.5%);
+        left: calc(20% + 10px);
+        justify-content: center;
+        height: 95vh;
+        width: calc(80% - 10px);
     }
 
     header {
+        top: calc(2.5%);
         left: 10px;
         flex-direction: column;
         justify-content: space-evenly;
         width: 20%;
         height: 90%;
         border-bottom: none;
+        border-right: 1px darkgray solid;
     }    
 
     .mobile-screen {
@@ -122,11 +166,23 @@ footer {
         display: block;
         text-align: center;
         font-size: 1.25em;
+        cursor: pointer;
+    }
+
+    .home-message {
+        font-size: 20px;
+    }
+
+    /* need to revisit this once I figured out what's going on above */
+    .about-me-image, .about-me-message {
+        position: none;
+        top: none;
     }
 
     footer {
         left: 10px;
         /* make sure this has the same width as the header */
         width: 20%;
+        border-top: none;
     }
 }
