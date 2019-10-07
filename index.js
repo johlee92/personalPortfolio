@@ -6,7 +6,7 @@ function handleHomePage() {
         Web Developer. Engineer by training. <br>
         Ventures. Investing. Strategy. <br>
         Adventures. Burner. Athlete. <br>
-        UPenn. Denver. <br>
+        Denver. San Francisco. <br>
     </section>
     <section class="home-buttons mobile-screen">
         <button type="button" class="view-aboutme">About Me</button>
