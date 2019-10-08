@@ -44,7 +44,7 @@ h1 {
     top: 75px;
 }
 
-.nav-menu {
+.nav-menu, .nav-logo {
     display: none;
 }
 
@@ -91,12 +91,16 @@ button:hover {
     margin-top: 15px;
 }
 
-.bold-and-underline {
+.navEmphasize {
+    transform: scale(1.1);
     font-weight: bold;
     text-decoration: underline;
 }
 
 .project-card {
+    /* not sure why the below position and top are needed */
+    /* position: relative;
+    top: 100px; */
     width: 75%;
     border: 2px darkgray solid;
     max-width: 700px;
@@ -162,7 +166,7 @@ footer {
         display: none;
     }
 
-    .nav-menu {
+    .nav-menu, .nav-logo {
         display: block;
         text-align: center;
         font-size: 1.25em;

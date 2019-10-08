@@ -38,7 +38,7 @@ function handlePortfolio() {
     let projectsArray = [];
     //learn how to turn this into the forEach() function
     for (let i = 0; i < PROJECTS.length; i++) {
-        projectsArray.push(createProjectsHTML(PROJECTS[i]));
+        projectsArray.push(createProjectsHtml(PROJECTS[i]));
     };
 
     //confirm that it is best practice to use JSON.stringify to turn the array into a string for html
@@ -46,16 +46,16 @@ function handlePortfolio() {
     $('.main-section').html(portfolioHtml);
 }
 
-function createProjectsHTML(projectObj) {
+function createProjectsHtml(projectObj) {
+    let projectTechnologies = createTechnologiesHtml(projectObj);
+    
     return `
     <div class="project-card">
         <img src='${projectObj.screenshot}' alt="${projectObj.title}" width=100%>
         <section class="project-card-description">
             <h2>${projectObj.title}</h2>
             <section class="project-card-technologies">
-                <img src='images/javascript.png' alt="JavaScript icon" height=30 width=30>
-                <img src='images/html.png' alt="HTML5 icon" height=30 width=30>
-                <img src='images/css.jpg' alt="CSS icon" height=30 width=30>
+                ${projectTechnologies}
             </section>
             <p>${projectObj.description}</p>
             <section class="project-card-buttons">
@@ -64,6 +64,34 @@ function createProjectsHTML(projectObj) {
             </section>
         </section>
     </div>`;
+}
+
+//function to dynamically create the icon images for technologies used in a project
+//how do I make this more fail proof? I'm thinking there are edge cases that are not represented here
+function createTechnologiesHtml(projectObj) {
+    let arrayTechnologies = projectObj.technologies;
+
+    if (arrayTechnologies.length === 0){
+        return '';
+    }
+
+    if (!arrayTechnologies){
+        return '';
+    }
+
+    let technologiesHtml = '';
+
+    for (let i = 0; i < arrayTechnologies.length; i++) {
+        if (arrayTechnologies[i].toLowerCase() === 'javascript') {
+            technologiesHtml += `<img src='images/javascript.png' alt="JavaScript icon" height=30 width=30>`;
+        } else if (arrayTechnologies[i].toLowerCase() === 'html') {
+            technologiesHtml += `<img src='images/html.png' alt="HTML5 icon" height=30 width=30>`;
+        } else if (arrayTechnologies[i].toLowerCase() === 'css') {
+            technologiesHtml += `<img src='images/css.jpg' alt="CSS icon" height=30 width=30>`;
+        }
+    };
+
+    return technologiesHtml;
 }
 
 function handleBlog() {
@@ -89,31 +117,52 @@ function handlePhotos() {
 }
 
 //handleNavigation listens for all clicks on navigtation specific places
-//what's a better way of writing this function to handle user input?
+//what's a better way of writing this function to handle user input? (look into different "views")
+//name could be called "initialize" because it's starting the navigation
+//if you call handleNavigation() twice, you create two click handlers, could execute twice resulting ina bug that's hard to fix, won't notice a problem until odd behavior
+//the above comment applies to all initializations
 function handleNavigation() {
     $('body').on('click','.view-homeMessage',function(){
         handleHomePage();
+        removeNavEmphasis();
+        $('.nav-menu.view-homeMessage').addClass('navEmphasize');
     });
     
     $('body').on('click','.view-aboutme',function(){
         handleAboutMe();
+        removeNavEmphasis();
+        $('.nav-menu.view-aboutme').addClass('navEmphasize');
     });
 
     $('body').on('click','.view-portfolio',function(){
         handlePortfolio();
+        removeNavEmphasis();
+        $('.nav-menu.view-portfolio').addClass('navEmphasize');
     });
 
     $('body').on('click','.view-blog',function(){
         handleBlog();
+        removeNavEmphasis();
+        $('.nav-menu.view-blog').addClass('navEmphasize');
     });
 
     $('body').on('click','.view-photos',function(){
         handlePhotos();
+        removeNavEmphasis();
+        $('.nav-menu.view-photos').addClass('navEmphasize');
     });
 }
 
-//function that bolds the menu item that is in play right now (and remove that ones that are not)
-function boldAndUnderline () {
+//function to remove the emphasis placed when an user is in another section
+//what's the more efficient way to write this code? [runtime and loadtime. don't want the same queries over and over again]
+function removeNavEmphasis() {
+    $('.view-homeMessage').removeClass('navEmphasize');
+    $('.view-aboutme').removeClass('navEmphasize');
+    $('.view-portfolio').removeClass('navEmphasize');
+    $('.view-blog').removeClass('navEmphasize');
+    $('.view-photos').removeClass('navEmphasize');
+    //the below code looks for all elements with the class and remove the class. This is not a user performance increase. This is code simplification
+    //$('.navEmphasize').removeClass('navEmphasize');
 }
 
 function personalWebsiteStart() {
