@@ -90,13 +90,19 @@ button:hover {
     /* how do I make this dynamic with the width of the picture? */
     width: 100%;
     max-width: 600px;
-    margin:auto;
+    margin: auto;
 }
 
 .navEmphasize {
     transform: scale(1.1);
     font-weight: bold;
     text-decoration: underline;
+}
+
+.project-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .project-card {
@@ -133,6 +139,12 @@ ul.menu-dropdown {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    text-align: center;
+}
+
+li:hover {
+    background-color: gray;
+    color: white;
 }
 
 /* What is the right breakpoint for tablets? */
@@ -170,7 +182,11 @@ ul.menu-dropdown {
         align-items: center;
         height: 100%;
         border-bottom: none;
-    }    
+    }
+
+    .main-section {
+        height: 80vh;
+    }
 
     .nav-menu, .nav-logo {
         display: block;

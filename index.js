@@ -39,13 +39,13 @@ function handlePortfolio() {
     console.log('handle portfolio and projects');
 
     let projectsArray = [];
-    //learn how to turn this into the forEach() function
+    
     for (let i = 0; i < PROJECTS.length; i++) {
         projectsArray.push(createProjectsHtml(PROJECTS[i]));
     };
 
     //confirm that it is best practice to use JSON.stringify to turn the array into a string for html
-    const portfolioHtml = projectsArray.join('');
+    const portfolioHtml = '<div class="project-list">' + projectsArray.join('') + '</div>' ;
     $('.main-section').html(portfolioHtml);
 }
 
@@ -91,6 +91,8 @@ function createTechnologiesHtml(projectObj) {
             technologiesHtml += `<img src='images/html.png' alt="HTML5 icon" height=30 width=30>`;
         } else if (arrayTechnologies[i].toLowerCase() === 'css') {
             technologiesHtml += `<img src='images/css.jpg' alt="CSS icon" height=30 width=30>`;
+        } else if (arrayTechnologies[i].toLowerCase() === 'react') {
+            technologiesHtml += `<img src='images/react.png' alt="React icon" height=30 width=30>`;
         }
     };
 
