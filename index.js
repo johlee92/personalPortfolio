@@ -7,7 +7,9 @@ function handleHomePage() {
         Ventures. Investing. Strategy. <br>
         Adventures. Burner. Athlete. <br>
         Denver. San Francisco. <br>
-    </section>
+    </section>`;
+
+    const removedContent = `
     <section class="home-buttons mobile-screen">
         <button type="button" class="view-aboutme">About Me</button>
         <button type="button" class="view-portfolio">Projects</button>
@@ -22,8 +24,9 @@ function handleAboutMe() {
     console.log('handle about me page');
 
     const aboutMeHtml = `
-    <img class="about-me-image" src='images/about-me-photo.JPG' alt="picture in about me with me hiking" width=65%>
     <section class = "about-me-message">
+        <img class="about-me-image" src='images/about-me-photo.JPG' alt="picture in about me with me hiking" width=100%>
+        <br>
         I’m a web developer and an engineer by training. I enjoy working with a team to materialize an idea, to solve problems, and to improve efficiency. I love being challenged intellectually. <br> <br>
         When I have free time, I can be found doing something active (e.g. hiking a 14er, surfing, swimming). I seek new adventures and enjoy having new experiences. I’m also an avid manga reader. <br> <br>
         I am currently based out of Denver, CO. I’ve lived in Philadelphia, New York City, Los Angeles, and San Francisco.
@@ -36,13 +39,13 @@ function handlePortfolio() {
     console.log('handle portfolio and projects');
 
     let projectsArray = [];
-    //learn how to turn this into the forEach() function
+    
     for (let i = 0; i < PROJECTS.length; i++) {
         projectsArray.push(createProjectsHtml(PROJECTS[i]));
     };
 
     //confirm that it is best practice to use JSON.stringify to turn the array into a string for html
-    const portfolioHtml = projectsArray.join('');
+    const portfolioHtml = '<div class="project-list">' + projectsArray.join('') + '</div>' ;
     $('.main-section').html(portfolioHtml);
 }
 
@@ -88,6 +91,8 @@ function createTechnologiesHtml(projectObj) {
             technologiesHtml += `<img src='images/html.png' alt="HTML5 icon" height=30 width=30>`;
         } else if (arrayTechnologies[i].toLowerCase() === 'css') {
             technologiesHtml += `<img src='images/css.jpg' alt="CSS icon" height=30 width=30>`;
+        } else if (arrayTechnologies[i].toLowerCase() === 'react') {
+            technologiesHtml += `<img src='images/react.png' alt="React icon" height=30 width=30>`;
         }
     };
 
@@ -116,39 +121,54 @@ function handlePhotos() {
     $('.main-section').html(photosHtml);
 }
 
+function handleMenu() {
+    console.log('handle menu');
+
+    $('.menu-dropdown').toggleClass('hidden');
+}
+
 //handleNavigation listens for all clicks on navigtation specific places
 //what's a better way of writing this function to handle user input? (look into different "views")
 //name could be called "initialize" because it's starting the navigation
 //if you call handleNavigation() twice, you create two click handlers, could execute twice resulting ina bug that's hard to fix, won't notice a problem until odd behavior
 //the above comment applies to all initializations
 function handleNavigation() {
+    $('body').on('click','.view-menu',function(){
+        handleMenu();
+    });
+
     $('body').on('click','.view-homeMessage',function(){
         handleHomePage();
         removeNavEmphasis();
+        $('.menu-dropdown').addClass('hidden');
         $('.nav-menu.view-homeMessage').addClass('navEmphasize');
     });
     
     $('body').on('click','.view-aboutme',function(){
         handleAboutMe();
         removeNavEmphasis();
+        $('.menu-dropdown').addClass('hidden');
         $('.nav-menu.view-aboutme').addClass('navEmphasize');
     });
 
     $('body').on('click','.view-portfolio',function(){
         handlePortfolio();
         removeNavEmphasis();
+        $('.menu-dropdown').addClass('hidden');
         $('.nav-menu.view-portfolio').addClass('navEmphasize');
     });
 
     $('body').on('click','.view-blog',function(){
         handleBlog();
         removeNavEmphasis();
+        $('.menu-dropdown').addClass('hidden');
         $('.nav-menu.view-blog').addClass('navEmphasize');
     });
 
     $('body').on('click','.view-photos',function(){
         handlePhotos();
         removeNavEmphasis();
+        $('.menu-dropdown').addClass('hidden');
         $('.nav-menu.view-photos').addClass('navEmphasize');
     });
 }

@@ -9,39 +9,41 @@ body {
     font-family: 'Noto Sans JP', sans-serif;
 }
 
+.container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 90vw;
+    height: 100vh;
+}
+
 header {
-    position: fixed;
-    top: 0;
-    /* is there a better way to center a fixed footer? */
-    left: calc(100% * 0.05);
+    width: 100%;
+    border-bottom: 1px darkgray solid;
+}
+
+.header-container {
     height: 60px;
-    width: 90%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    border-bottom: 1px darkgray solid;
 }
 
 h1 {
     margin: 0;
 }
 
-.main-section {
-    position: relative;
-    top: 75px;
-    height: 75vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    overflow: auto;
+main {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 75vw;
 }
 
-/* it's unclear why this is needed */
-.about-me-image, .about-me-message {
-    position: relative;
-    top: 75px;
+.main-section {
+    overflow: auto;
 }
 
 .nav-menu, .nav-logo {
@@ -86,9 +88,9 @@ button:hover {
 
 .about-me-message {
     /* how do I make this dynamic with the width of the picture? */
-    width: 65%;
+    width: 100%;
     max-width: 600px;
-    margin-top: 15px;
+    margin: auto;
 }
 
 .navEmphasize {
@@ -97,10 +99,13 @@ button:hover {
     text-decoration: underline;
 }
 
+.project-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .project-card {
-    /* not sure why the below position and top are needed */
-    /* position: relative;
-    top: 100px; */
     width: 75%;
     border: 2px darkgray solid;
     max-width: 700px;
@@ -116,11 +121,7 @@ button:hover {
 }
 
 footer {
-    position: fixed;
-    bottom: 0;
-    /* is there a better way to center a fixed footer? */
-    left: calc(100% * 0.05);
-    width: 90%;
+    width: 100%;
     min-height: 60px;
     height: 5vh;
     display: flex;
@@ -130,40 +131,61 @@ footer {
     border-top: 1px darkgray solid;
 }
 
+.hidden {
+    display: none;
+}
+
+ul.menu-dropdown {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+li:hover {
+    background-color: gray;
+    color: white;
+}
+
 /* What is the right breakpoint for tablets? */
 @media (min-width: 728px) {
     .home-buttons {
         width: 600px;
     }
-
-    /* need to revisit this once I figured out what's going on above */
-    .about-me-image, .about-me-message {
-        position: static;
-    }
 }
 
 @media (min-width: 1024px) {
-    .main-section {
-        top: calc(2.5%);
-        left: calc(20% + 10px);
-        justify-content: center;
-        height: 95vh;
-        width: calc(80% - 10px);
+    
+    .mobile-screen {
+        display: none;
+    }
+
+    .container {
+        margin-top: 5vh;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 95vw;
+        height: 90vh;
     }
 
     header {
-        top: calc(2.5%);
-        left: 10px;
+        height: 100%;
+        width: 20%;
+        border-right: 1px darkgray solid;
+        border-bottom: none;
+    }
+
+    .header-container {
         flex-direction: column;
         justify-content: space-evenly;
-        width: 20%;
-        height: 90%;
+        align-items: center;
+        height: 100%;
         border-bottom: none;
-        border-right: 1px darkgray solid;
-    }    
+    }
 
-    .mobile-screen {
-        display: none;
+    .main-section {
+        height: 80vh;
     }
 
     .nav-menu, .nav-logo {
@@ -177,16 +199,11 @@ footer {
         font-size: 20px;
     }
 
-    /* need to revisit this once I figured out what's going on above */
-    .about-me-image, .about-me-message {
-        position: none;
-        top: none;
-    }
-
-    footer {
-        left: 10px;
-        /* make sure this has the same width as the header */
-        width: 20%;
-        border-top: none;
+    .contact-info {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
     }
 }

@@ -9,44 +9,52 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:700|Noto+Sans+JP&display=swap" rel="stylesheet">
     </head>
     <body>
-        <main>
+        <div class="container">
             <header>
-                <img class="logoPicture mobile-screen view-homeMessage" src='images/logo.png' alt="JYL logo" height=40 width=40>
-                <h1 class="mobile-screen">John</h1>
-                <section class="mobile-screen">
-                    <img class="menuHamburger view-homeMessage" src='images/menuHamburger.png' alt="menu" height=40 width=40>
-                </section>
-                <section class="nav-logo view-homeMessage"><img class="logoPicture" src='images/logo.png' alt="JYL logo" height=40 width=40></section>
-                <section class="nav-menu view-homeMessage navEmphasize">John</section>
-                <section class="nav-menu view-aboutme">About Me</section>
-                <section class="nav-menu view-portfolio">Portfolio</section>
-                <section class="nav-menu view-blog">Blog</section>
-                <section class="nav-menu view-photos">Photos</section>
-            </header>           
-            <section class="main-section">
-                <!-- <div class="project-card">
-                    <img src='images/quizApp.png' alt="quiz app" width=100%>
-                    <section class="project-card-description">
-                        <h2>Quiz App</h2>
-                        <section class="project-card-technologies">
-                            <img src='images/javascript.png' alt="JavaScript icon" height=30 width=30>
-                            <img src='images/html.png' alt="HTML5 icon" height=30 width=30>
-                            <img src='images/css.jpg' alt="CSS icon" height=30 width=30>
-                        </section>
-                        <p>Algeba Quizz is, as its name implies, an app that tests the user's knowledge of algebra</p>
-                        <section class="project-card-buttons">
-                            <a href="https://github.com/johlee92/quizAppThinkful" target="_blank"><button type="button" class="view-project">View Code</button></a>
-                            <a href="https://johlee92.github.io/quizAppThinkful/" target="_blank"><button type="button" class="view-project">View Project</button></a>
-                        </section>
+                <div class="header-container">
+                    <img class="logoPicture mobile-screen view-homeMessage" src='images/logo.png' alt="JYL logo" height=40 width=40>
+                    <h1 class="mobile-screen">John</h1>
+                    <section class="mobile-screen">
+                        <img class="menuHamburger view-menu" src='images/menuHamburger.png' alt="menu" height=40 width=40>
                     </section>
-                </div> -->
-            </section>
-        </main>
-        <footer role="content-info">
-            <a href="mailto:johnathanlee72@hotmail.com"><img class="content-info email" src='images/mail.jpg' alt="JYL email" height=30 width=30></a>
-            <a href="https://linkedin.com" target="_blank"><img class="content-info linkedin" src='images/linkedin.jpg' alt="JYL linkedin" height=30 width=30></a>
-            <a href="https://github.com/johlee92" target="_blank"><img class="content-info github" src='images/GitHub.png' alt="JYL GitHub" height=30 width=30></a>
-        </footer>
+                    <section class="nav-logo view-homeMessage"><img class="logoPicture" src='images/logo.png' alt="JYL logo" height=40 width=40></section>
+                    <section class="nav-menu view-homeMessage navEmphasize">John</section>
+                    <section class="nav-menu view-aboutme">About Me</section>
+                    <section class="nav-menu view-portfolio">Portfolio</section>
+                    <section class="nav-menu view-blog">Blog</section>
+                    <section class="nav-menu view-photos">Photos</section>
+                    <section class="nav-menu contact-info">
+                        <a href="mailto:johnathanlee72@hotmail.com"><img class="content-info email" src='images/mail.jpg' alt="JYL email" height=30 width=30></a>
+                        <a href="https://linkedin.com" target="_blank"><img class="content-info linkedin" src='images/linkedin.jpg' alt="JYL linkedin" height=30 width=30></a>
+                        <a href="https://github.com/johlee92" target="_blank"><img class="content-info github" src='images/GitHub.png' alt="JYL GitHub" height=30 width=30></a>
+                    </section>
+                </div>
+                <section class="menu-dropdown hidden">
+                    <ul class="menu-dropdown hidden">
+                        <li class="view-homeMessage">Home Page</li>
+                        <li class="view-aboutme">About Me</li>
+                        <li class="view-portfolio">Portfolio</li>
+                        <li class="view-blog">Blog</li>
+                        <li class="view-photos">Photos</li>
+                    </ul>
+                </section>
+            </header>
+            <main>
+                <section class="main-section">
+                        <img class="about-me-image" src='images/about-me-photo.JPG' alt="picture in about me with me hiking" width=65%>
+                        <section class = "about-me-message">
+                            I’m a web developer and an engineer by training. I enjoy working with a team to materialize an idea, to solve problems, and to improve efficiency. I love being challenged intellectually. <br> <br>
+                            When I have free time, I can be found doing something active (e.g. hiking a 14er, surfing, swimming). I seek new adventures and enjoy having new experiences. I’m also an avid manga reader. <br> <br>
+                            I am currently based out of Denver, CO. I’ve lived in Philadelphia, New York City, Los Angeles, and San Francisco.
+                        </section>
+                </section>
+            </main>
+            <footer role="content-info" class="mobile-screen">
+                <a href="mailto:johnathanlee72@hotmail.com"><img class="content-info email" src='images/mail.jpg' alt="JYL email" height=30 width=30></a>
+                <a href="https://www.linkedin.com/in/john-lee-jyl/" target="_blank"><img class="content-info linkedin" src='images/linkedin.jpg' alt="JYL linkedin" height=30 width=30></a>
+                <a href="https://github.com/johlee92" target="_blank"><img class="content-info github" src='images/GitHub.png' alt="JYL GitHub" height=30 width=30></a>
+            </footer>
+        </div>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <script src="index.js"></script>
         <script src="projects.js"></script>
