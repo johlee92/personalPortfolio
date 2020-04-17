@@ -1,42 +1,43 @@
 function handleHomePage() {
-    console.log('handle home page');
+    // console.log('handle home page');
 
     const homePageHtml = `
-    <section class="home-message">
-        Web Developer. Engineer by training. <br>
+    <div class="home-message">
+        Web Developer. Engineer. <br>
         Ventures. Investing. Strategy. <br>
         Adventures. Burner. Athlete. <br>
         Denver. San Francisco. <br>
-    </section>`;
+    </div>`;
 
     const removedContent = `
-    <section class="home-buttons mobile-screen">
+    <div class="home-buttons mobile-screen">
         <button type="button" class="view-aboutme">About Me</button>
         <button type="button" class="view-portfolio">Projects</button>
         <button type="button" class="view-blog">Blog</button>
         <button type="button" class="view-photos">Photos</button>
-    </section>`;
+    </div>`;
 
     $('.main-section').html(homePageHtml);
 } 
 
 function handleAboutMe() {
-    console.log('handle about me page');
+    // console.log('handle about me page');
 
     const aboutMeHtml = `
-    <section class = "about-me-message">
+    <div class = "about-me-message">
         <img class="about-me-image" src='images/about-me-photo.JPG' alt="picture in about me with me hiking" width=100%>
+        <br>
         <br>
         I’m a web developer and an engineer by training. I enjoy working with a team to materialize an idea, to solve problems, and to improve efficiency. I love being challenged intellectually. <br> <br>
         When I have free time, I can be found doing something active (e.g. hiking a 14er, surfing, swimming). I seek new adventures and enjoy having new experiences. I’m also an avid manga reader. <br> <br>
         I am currently based out of Denver, CO. I’ve lived in Philadelphia, New York City, Los Angeles, and San Francisco.
-    </section>`;
+    </div>`;
 
     $('.main-section').html(aboutMeHtml);
 }
 
 function handlePortfolio() {
-    console.log('handle portfolio and projects');
+    // console.log('handle portfolio and projects');
 
     let projectsArray = [];
     
@@ -55,17 +56,17 @@ function createProjectsHtml(projectObj) {
     return `
     <div class="project-card">
         <img src='${projectObj.screenshot}' alt="${projectObj.title}" width=100%>
-        <section class="project-card-description">
+        <div class="project-card-description">
             <h2>${projectObj.title}</h2>
-            <section class="project-card-technologies">
+            <div class="project-card-technologies">
                 ${projectTechnologies}
-            </section>
+            </div>
             <p>${projectObj.description}</p>
-            <section class="project-card-buttons">
+            <div class="project-card-buttons">
                 <a href="${projectObj.repoLink}" target="_blank"><button type="button" class="view-project">View Code</button></a>
                 <a href="${projectObj.liveLink}" target="_blank"><button type="button" class="view-project">View Project</button></a>
-            </section>
-        </section>
+            </div>
+        </div>
     </div>`;
 }
 
@@ -100,29 +101,29 @@ function createTechnologiesHtml(projectObj) {
 }
 
 function handleBlog() {
-    console.log('handle blog');
+    // console.log('handle blog');
 
     const blogHtml = `
-    <section class="home-message">
+    <div class="home-message">
         Coming soon!
-    </section>`;
+    </div>`;
 
     $('.main-section').html(blogHtml);
 }
 
 function handlePhotos() {
-    console.log('handle photos');
+    // console.log('handle photos');
 
     const photosHtml = `
-    <section class="home-message">
+    <div class="home-message">
         Coming soon!
-    </section>`;
+    </div>`;
 
     $('.main-section').html(photosHtml);
 }
 
 function handleMenu() {
-    console.log('handle menu');
+    // console.log('handle menu');
 
     $('.menu-dropdown').toggleClass('hidden');
 }
@@ -173,7 +174,7 @@ function handleNavigation() {
     });
 }
 
-//function to remove the emphasis placed when an user is in another section
+//function to remove the emphasis placed when an user is in another div
 //what's the more efficient way to write this code? [runtime and loadtime. don't want the same queries over and over again]
 function removeNavEmphasis() {
     $('.view-homeMessage').removeClass('navEmphasize');
